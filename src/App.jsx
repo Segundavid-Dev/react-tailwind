@@ -8,7 +8,7 @@ function App() {
   function handleAddTasks(e) {
     e.preventDefault();
     console.log(input);
-    SetTodos([...todos, input]); //Add task to list
+    SetTodos((todos) => [...todos, input]); //Add task to list
     setInput(""); // clear input field
     console.log(todos);
   }
