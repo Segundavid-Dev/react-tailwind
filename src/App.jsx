@@ -39,14 +39,14 @@ function App() {
       <Header />
       <FormInput />
       <DisplayTask />
-      <Task />
+      <FilterTask />
     </div>
   );
 }
 
 function Header() {
   return (
-    <div className="flex w-full items-center justify-between">
+    <div className="flex w-full items-center justify-between mb-[2rem]">
       <h1 className="text-4xl tracking-[.5rem] font-extrabold">TODO</h1>
       <img
         src="images/icon-sun.svg"
@@ -65,7 +65,7 @@ function FormInput() {
         placeholder="Create a new todo..."
         className="bg-[var(--input-background)] w-full pt-[15px] pb-[15px] pl-[4rem] border-none outline-none text-[14px] mb-[1rem]"
       />
-      <div className="absolute left-3 top-1.5 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
+      <div className="absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
     </div>
   );
 }
@@ -82,9 +82,24 @@ function DisplayTask() {
 
 function Task() {
   return (
-    <div className="pt-[15px] pb-[15px] pl-[4rem] border-1 border-gray-500">
+    <div className="pt-[15px] pb-[15px] pl-[4rem] border-[1px] border-gray-500 text-[14px] relative">
       <p>display Task</p>
+      <div className="absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
     </div>
+  );
+}
+
+function FilterTask() {
+  return (
+    <ul className="w-full bg-[var(--input-background)] p-[15px] border-[1px] border-gray-500 text-[14px] relative flex text-gray-500 items-center justify-between cursor-pointer">
+      <li>5 items left</li>
+      <span className="flex gap-4">
+        <li>All</li>
+        <li>Active</li>
+        <li>Completed</li>
+      </span>
+      <li>Clear competed</li>
+    </ul>
   );
 }
 
