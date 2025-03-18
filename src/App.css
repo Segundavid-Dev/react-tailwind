@@ -4,10 +4,7 @@
   padding: 0 2rem;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
-  place-items: center;
+body {
+  background-image: url(../public/images/bg-desktop-dark.jpg);
+  background-repeat: no-repeat;
 }
