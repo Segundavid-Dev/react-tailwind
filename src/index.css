@@ -1,6 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
 @import "tailwindcss";
 
+:root {
+  --input-background: hsl(235, 24%, 19%);
+  --check-background: linear-gradient(
+    90deg,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
 body {
   margin: 0;
   background-color: hsl(235, 21%, 11%);
