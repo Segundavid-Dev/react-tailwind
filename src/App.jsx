@@ -45,14 +45,14 @@ function App() {
         handleSubmit={handleSubmit}
       />
       <DisplayTask latestTask={tasks} />
-      <FilterTask />
+      <FilterTask numOfTasks={tasks} />
     </div>
   );
 }
 
 function Header() {
   return (
-    <div className="flex w-full items-center justify-between mb-[2rem]">
+    <div className="flex w-full items-center justify-between my-[2rem]">
       <h1 className="text-4xl tracking-[.5rem] font-extrabold">TODO</h1>
       <img
         src="images/icon-sun.svg"
@@ -104,10 +104,11 @@ function Task({ task }) {
   );
 }
 
-function FilterTask() {
+function FilterTask({ numOfTasks }) {
+  const number = numOfTasks.length;
   return (
     <ul className="w-full bg-[var(--input-background)] p-[15px] border-[1px] border-gray-500 text-[14px] relative flex text-gray-500 items-center justify-between cursor-pointer">
-      <li className="">5 items left</li>
+      <li className="">{number} item left</li>
       <span className="flex gap-4">
         <li>All</li>
         <li>Active</li>
