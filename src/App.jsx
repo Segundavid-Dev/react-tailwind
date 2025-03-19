@@ -117,7 +117,13 @@ function Task({ task, id }) {
       >
         {task}
       </li>
-      <div className="absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
+      <div
+        className={`${
+          checked
+            ? "bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full cursor-pointer absolute left-3 top-3 w-6 h-6"
+            : "absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"
+        }`}
+      ></div>
     </div>
   );
 }
