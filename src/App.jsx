@@ -74,16 +74,21 @@ function DisplayTask() {
   return (
     <div className="w-full relative bg-[var(--input-background)]">
       {initialTask.map((task) => (
-        <Task />
+        <Task
+          task={task.tasks}
+          key={task.id}
+          status={task.status}
+          id={task.id}
+        />
       ))}
     </div>
   );
 }
 
-function Task() {
+function Task({ task }) {
   return (
     <div className="pt-[15px] pb-[15px] pl-[4rem] border-[1px] border-gray-500 text-[14px] relative">
-      <p>display Task</p>
+      <li className="list-none">{task}</li>
       <div className="absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
     </div>
   );
@@ -92,7 +97,7 @@ function Task() {
 function FilterTask() {
   return (
     <ul className="w-full bg-[var(--input-background)] p-[15px] border-[1px] border-gray-500 text-[14px] relative flex text-gray-500 items-center justify-between cursor-pointer">
-      <li>5 items left</li>
+      <li className="">5 items left</li>
       <span className="flex gap-4">
         <li>All</li>
         <li>Active</li>
