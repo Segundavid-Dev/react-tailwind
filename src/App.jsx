@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-const initialTask = [
+let initialTask = [
   {
     id: 1,
     tasks: "Completed online Javascript Course",
@@ -22,8 +22,17 @@ const initialTask = [
 function App() {
   const [newTask, setNewTask] = useState("");
 
-  function handleInput(e) {
+  function handleSubmit(e) {
     e.preventDefault();
+    setNewTask((newTask) => newTask);
+
+    const submittedTaskObject = {
+      id: Date.now(),
+      tasks: newTask,
+      status: "Active",
+    };
+    initialTask = [...initialTask, submittedTaskObject];
+    console.log(initialTask);
   }
 
   return (
@@ -32,9 +41,9 @@ function App() {
       <FormInput
         newTask={newTask}
         setNewTask={setNewTask}
-        handleInput={handleInput}
+        handleSubmit={handleSubmit}
       />
-      <DisplayTask />
+      <DisplayTask latestTask={initialTask} />
       <FilterTask />
     </div>
   );
@@ -53,9 +62,9 @@ function Header() {
   );
 }
 
-function FormInput({ newTask, setNewTask, handleInput }) {
+function FormInput({ newTask, setNewTask, handleSubmit }) {
   return (
-    <form className="w-full relative" onSubmit={handleInput}>
+    <form className="w-full relative" onSubmit={handleSubmit}>
       <input
         type="text"
         value={newTask}
@@ -68,10 +77,10 @@ function FormInput({ newTask, setNewTask, handleInput }) {
   );
 }
 
-function DisplayTask() {
+function DisplayTask({ latestTask }) {
   return (
     <div className="w-full relative bg-[var(--input-background)]">
-      {initialTask.map((task) => (
+      {latestTask.map((task) => (
         <Task
           task={task.tasks}
           key={task.id}

@@ -8,3 +8,10 @@ body {
   background-image: url(/images/bg-desktop-dark.jpg);
   background-repeat: no-repeat;
 }
+
+/* const submittedTaskObject = {
+  id: Date.now(),
+  submittedTas: newTask,
+  status: "Active",
+};
+const computtedTask = [...initialTask, submittedTaskObject]; */
