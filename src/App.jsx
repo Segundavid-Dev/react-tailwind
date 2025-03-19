@@ -20,30 +20,31 @@ let initialTask = [
 ];
 
 function App() {
-  const [newTask, setNewTask] = useState("");
+  const [newInput, setNewInput] = useState("");
+  const [tasks, setTask] = useState(initialTask);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setNewTask((newTask) => newTask);
+    setNewInput((newTask) => newTask);
 
     const submittedTaskObject = {
       id: Date.now(),
-      tasks: newTask,
+      tasks: newInput,
       status: "Active",
     };
-    initialTask = [...initialTask, submittedTaskObject];
-    console.log(initialTask);
+    setTask([submittedTaskObject, ...tasks]);
+    setNewInput("");
   }
 
   return (
     <div className="flex flex-col min-w-[30vw] sm:max-w-[40vw] md:max-w-[50vw] min-h-[100vh] items-center justify-center mx-auto">
       <Header />
       <FormInput
-        newTask={newTask}
-        setNewTask={setNewTask}
+        newInput={newInput}
+        setNewInput={setNewInput}
         handleSubmit={handleSubmit}
       />
-      <DisplayTask latestTask={initialTask} />
+      <DisplayTask latestTask={tasks} />
       <FilterTask />
     </div>
   );
@@ -62,13 +63,13 @@ function Header() {
   );
 }
 
-function FormInput({ newTask, setNewTask, handleSubmit }) {
+function FormInput({ newInput, setNewInput, handleSubmit }) {
   return (
     <form className="w-full relative" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        value={newInput}
+        onChange={(e) => setNewInput(e.target.value)}
         placeholder="Create a new todo..."
         className="bg-[var(--input-background)] w-full pt-[15px] pb-[15px] pl-[4rem] border-none outline-none text-[14px] mb-[1rem]"
       />
@@ -93,6 +94,8 @@ function DisplayTask({ latestTask }) {
 }
 
 function Task({ task }) {
+  // early return
+  if (task === "") return;
   return (
     <div className="pt-[15px] pb-[15px] pl-[4rem] border-[1px] border-gray-500 text-[14px] relative">
       <li className="list-none">{task}</li>
