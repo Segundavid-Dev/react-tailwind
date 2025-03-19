@@ -108,8 +108,13 @@ function Task({ task, id }) {
     <div
       className="pt-[15px] pb-[15px] pl-[4rem] border-[1px] border-gray-500
       text-[14px] relative"
+      onClick={() => handleCheckedTask(id)}
     >
-      <li className="list-none" onClick={() => handleCheckedTask(id)}>
+      <li
+        className={`${
+          checked && "line-through text-gray-400"
+        } list-none cursor-pointer`}
+      >
         {task}
       </li>
       <div className="absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
