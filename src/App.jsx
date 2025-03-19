@@ -147,4 +147,7 @@ function FilterTask({ numOfTasks }) {
   );
 }
 
+function FilterActive() {}
+
+function FilterCompleted() {}
 export default App;
