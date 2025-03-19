@@ -93,7 +93,7 @@ function DisplayTask({ latestTask }) {
   );
 }
 
-function Task({ task, id }) {
+function Task({ task, id, status }) {
   const [checked, setChecked] = useState(false);
 
   if (task === "") return;
@@ -102,6 +102,8 @@ function Task({ task, id }) {
     setChecked((checked) => !checked);
     console.log(checked);
     console.log(id);
+    status = "completed";
+    console.log(status);
   }
 
   return (
@@ -120,10 +122,12 @@ function Task({ task, id }) {
       <div
         className={`${
           checked
-            ? "bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full cursor-pointer absolute left-3 top-3 w-6 h-6"
+            ? "bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full cursor-pointer absolute left-3 top-3 w-6 h-6 flex items-center justify-center"
             : "absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"
         }`}
-      ></div>
+      >
+        {checked && <img src="/images/icon-check.svg" alt="Icon check image" />}
+      </div>
     </div>
   );
 }
