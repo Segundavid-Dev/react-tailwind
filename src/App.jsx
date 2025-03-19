@@ -93,12 +93,25 @@ function DisplayTask({ latestTask }) {
   );
 }
 
-function Task({ task }) {
-  // early return
+function Task({ task, id }) {
+  const [checked, setChecked] = useState(false);
+
   if (task === "") return;
+
+  function handleCheckedTask(id) {
+    setChecked((checked) => !checked);
+    console.log(checked);
+    console.log(id);
+  }
+
   return (
-    <div className="pt-[15px] pb-[15px] pl-[4rem] border-[1px] border-gray-500 text-[14px] relative">
-      <li className="list-none">{task}</li>
+    <div
+      className="pt-[15px] pb-[15px] pl-[4rem] border-[1px] border-gray-500
+      text-[14px] relative"
+    >
+      <li className="list-none" onClick={() => handleCheckedTask(id)}>
+        {task}
+      </li>
       <div className="absolute left-3 top-3 w-6 h-6 border-1 border-gray-500 rounded-full cursor-pointer"></div>
     </div>
   );
