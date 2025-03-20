@@ -11,3 +11,6 @@
 - [ ] Conditonal styling
 - [ ] State Lifting
 - [ ] Early Return
+
+
+_!* I hit a limitation while working with props in this project, i tried creating independency of state for my each tasks so i can handle it seperately but quickly hit a wall as i was limited with the react features i had learnt, I hope to restructure this project well enough soon after learning some other hooks to avoid using prop drilling_
