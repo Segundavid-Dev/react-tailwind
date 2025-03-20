@@ -37,7 +37,7 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col min-w-[30vw] sm:max-w-[40vw] md:max-w-[50vw] min-h-[100vh] items-center justify-center mx-auto">
+    <div className="flex flex-col min-w-[30vw] sm:max-w-[40vw] md:max-w-[50vw] min-h-[100vh] items-center justify-center mx-auto mt-[-3rem] lg:mt-[-2rem]">
       <Header />
       <FormInput
         newInput={newInput}
@@ -52,7 +52,7 @@ function App() {
 
 function Header() {
   return (
-    <div className="flex w-full items-center justify-between my-[2rem]">
+    <div className="flex w-full items-center justify-between mt-[4rem] mb-[2rem]">
       <h1 className="text-4xl tracking-[.5rem] font-extrabold">TODO</h1>
       <img
         src="images/icon-sun.svg"
