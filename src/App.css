@@ -9,6 +9,14 @@ body {
   background-repeat: no-repeat;
 }
 
+/* handle media queries for small screen sizes*/
+@media screen and (max-width: 834px) {
+  body {
+    background-size: auto 50vh;
+  }
+}
+
+/*  */
 /* const submittedTaskObject = {
   id: Date.now(),
   submittedTas: newTask,
